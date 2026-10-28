@@ -1,0 +1,76 @@
+
+# Dependencies
+**/node_modules/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.Python
+
+# Python virtual environments
+.venv/
+**/.venv/
+venv/
+**/venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+**/dist/
+**/build/
+*.egg-info/
+.eggs/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python package artifacts
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Frontend caches
+.cache/
+.parcel-cache/
+.vite/
+
+# Miscellaneous
+*.orig
+
+# Dataset CSV files
+*.csv
