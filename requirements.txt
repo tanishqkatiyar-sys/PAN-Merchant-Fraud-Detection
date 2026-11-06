@@ -1,0 +1,32 @@
+# =========================
+# BACKEND REQUIREMENTS
+# =========================
+
+Flask==3.0.0
+flask-cors==4.0.0
+pandas==2.1.4
+numpy==1.26.2
+networkx==3.2.1
+scikit-learn==1.3.2
+
+
+# =========================
+# FRONTEND REQUIREMENTS (React + Vite)
+# Install these using npm
+# =========================
+
+@emotion/react==11.11.1
+@emotion/styled==11.11.0
+@mui/icons-material==5.15.0
+@mui/material==5.15.0
+axios==1.6.2
+d3==7.8.5
+react==18.2.0
+react-dom==18.2.0
+react-force-graph-2d==1.25.4
+react-router-dom==6.20.1
+recharts==2.10.3
+
+# Frontend development dependencies
+@vitejs/plugin-react==4.2.1
+vite==5.4.21
