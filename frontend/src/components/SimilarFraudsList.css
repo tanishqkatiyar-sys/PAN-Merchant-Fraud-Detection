@@ -1,113 +1,260 @@
+
+/* =========================================
+   SIMILAR FRAUDS - PREMIUM GLASS TABLE
+========================================= */
+
 .similar-frauds-list {
   width: 100%;
   overflow-x: auto;
+  border-radius: 18px;
+  scrollbar-width: thin;
+  scrollbar-color: #14b8a6 rgba(255, 255, 255, 0.05);
 }
 
+/* Custom scrollbar */
+.similar-frauds-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.similar-frauds-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 20px;
+}
+
+.similar-frauds-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #0d9488, #22d3ee);
+  border-radius: 20px;
+}
+
+/* Table container */
 .frauds-table {
-  min-width: 100%;
-  background: rgba(26, 35, 50, 0.95);
-  border-radius: 8px;
-  border: 1px solid rgba(20, 184, 166, 0.2);
+  min-width: 950px;
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  border-radius: 18px;
+  overflow: hidden;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
+/* Column header */
 .table-header {
   display: grid;
   grid-template-columns: 60px 120px 100px 150px 100px 120px 120px 120px;
   gap: 12px;
-  padding: 16px;
-  background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
-  color: white;
-  font-weight: 600;
-  border-radius: 8px 8px 0 0;
+
+  padding: 18px 16px;
+
+  background: linear-gradient(
+    110deg,
+    rgba(13, 148, 136, 0.85),
+    rgba(8, 145, 178, 0.8),
+    rgba(15, 118, 110, 0.85)
+  );
+
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  border-bottom: 1px solid rgba(94, 234, 212, 0.3);
 }
 
+/* Table rows */
 .table-row {
   display: grid;
   grid-template-columns: 60px 120px 100px 150px 100px 120px 120px 120px;
   gap: 12px;
-  padding: 16px;
-  border-bottom: 1px solid rgba(20, 184, 166, 0.1);
-  transition: all 0.3s;
+
+  padding: 17px 16px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+
+  background: rgba(255, 255, 255, 0.015);
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.table-row:nth-child(even) {
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .table-row:hover {
-  background: rgba(20, 184, 166, 0.05);
+  background: rgba(20, 184, 166, 0.09);
+  box-shadow: inset 3px 0 0 #2dd4bf;
 }
 
 .table-row:last-child {
-  border-radius: 0 0 8px 8px;
+  border-bottom: none;
 }
 
+/* Table cells */
 .table-cell {
   display: flex;
   align-items: center;
+
   font-size: 0.9rem;
   word-break: break-word;
-  color: #e2e8f0;
+  color: #dbeafe;
 }
 
+/* Ranking */
 .rank {
-  font-weight: 700;
-  color: #14b8a6;
-  font-size: 1rem;
+  font-weight: 800;
+  color: #5eead4;
+  font-size: 1.05rem;
+
+  text-shadow: 0 0 12px rgba(45, 212, 191, 0.25);
 }
 
+/* Merchant ID */
 .merchant-id {
   font-family: 'Courier New', monospace;
-  font-weight: 600;
-  color: #e2e8f0;
+  font-weight: 700;
+  color: #67e8f9;
+  letter-spacing: 0.3px;
 }
 
+/* Similarity badge */
 .similarity-badge {
-  background: #51cf66;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 0.85rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 65px;
+  padding: 6px 12px;
+
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: 30px;
+
+  color: #6ee7b7;
+  font-weight: 800;
+  font-size: 0.83rem;
   text-align: center;
+
+  box-shadow: 0 3px 12px rgba(16, 185, 129, 0.08);
 }
 
+/* Fraud tier badge */
 .tier-badge {
-  background: #14b8a6;
-  color: white;
-  padding: 4px 10px;
-  border-radius: 16px;
-  font-size: 0.85rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: fit-content;
+  padding: 6px 12px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(13, 148, 136, 0.25),
+    rgba(8, 145, 178, 0.2)
+  );
+
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 30px;
+
+  color: #99f6e4;
+  font-size: 0.82rem;
+  font-weight: 700;
   text-transform: capitalize;
 }
 
+/* View button */
 .view-button {
-  background: #14b8a6;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #14b8a6,
+    #0891b2
+  );
+
+  color: #ffffff;
+  border: 1px solid rgba(153, 246, 228, 0.25);
+  padding: 9px 16px;
+  border-radius: 10px;
+
+  font-size: 0.84rem;
+  font-weight: 750;
   cursor: pointer;
-  transition: all 0.3s;
+  white-space: nowrap;
+
+  box-shadow: 0 4px 14px rgba(20, 184, 166, 0.15);
+
+  transition: all 0.25s ease;
 }
 
 .view-button:hover {
-  background: #0d9488;
+  background: linear-gradient(
+    135deg,
+    #2dd4bf,
+    #0891b2
+  );
+
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(20, 184, 166, 0.4);
+
+  box-shadow:
+    0 7px 20px rgba(20, 184, 166, 0.3),
+    0 0 15px rgba(34, 211, 238, 0.12);
 }
+
+.view-button:active {
+  transform: scale(0.96);
+}
+
+.view-button:focus-visible {
+  outline: 2px solid #67e8f9;
+  outline-offset: 3px;
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
 
 @media (max-width: 1024px) {
   .table-header,
   .table-row {
-    grid-template-columns: 50px 100px 90px 120px 80px 100px 100px 100px;
+    grid-template-columns:
+      45px 100px 90px 120px 85px 100px 100px 100px;
     gap: 8px;
-    padding: 12px;
-    font-size: 0.85rem;
+    padding: 14px 12px;
+    font-size: 0.84rem;
   }
 }
 
+/* =========================================
+   MOBILE CARD LAYOUT
+========================================= */
+
 @media (max-width: 768px) {
+  .similar-frauds-list {
+    overflow: visible;
+  }
+
   .frauds-table {
-    display: block;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+    backdrop-filter: none;
   }
 
   .table-header {
@@ -117,21 +264,87 @@
   .table-row {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding: 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    margin-bottom: 12px;
+    gap: 0;
+
+    padding: 14px 17px;
+    margin-bottom: 15px;
+
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    border-radius: 16px;
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.17);
+  }
+
+  .table-row:nth-child(even) {
+    background: rgba(255, 255, 255, 0.055);
+  }
+
+  .table-row:hover {
+    background: rgba(20, 184, 166, 0.09);
+    transform: translateY(-2px);
   }
 
   .table-cell {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    font-size: 0.88rem;
+    text-align: right;
+  }
+
+  .table-cell:last-child {
+    border-bottom: none;
+    padding-top: 14px;
   }
 
   .table-cell::before {
     content: attr(data-label);
-    font-weight: 600;
-    color: #666;
+
+    color: #94a3b8;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .view-button {
+    width: 100%;
+    padding: 11px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 380px) {
+  .table-row {
+    padding: 12px;
+  }
+
+  .table-cell {
+    font-size: 0.82rem;
+    gap: 8px;
+  }
+
+  .table-cell::before {
+    font-size: 0.72rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .table-row,
+  .view-button {
+    transition: none !important;
   }
 }

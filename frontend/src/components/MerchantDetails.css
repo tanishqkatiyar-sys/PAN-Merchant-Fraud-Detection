@@ -1,138 +1,407 @@
+
+/* =========================================
+   MERCHANT DETAILS - PREMIUM GLASS UI
+========================================= */
+
 .merchant-details {
   min-height: calc(100vh - 80px);
-  padding: 20px 0;
+  padding: 35px 0 60px;
+  color: #f1f5f9;
+  position: relative;
 }
 
+/* Common glass card styling */
+.merchant-details .card {
+  background: rgba(255, 255, 255, 0.065);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 26px;
+  margin-bottom: 24px;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.merchant-details .card:hover {
+  border-color: rgba(45, 212, 191, 0.3);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.28),
+    0 0 22px rgba(20, 184, 166, 0.07);
+}
+
+.merchant-details .card-title {
+  color: #ccfbf1;
+  font-size: 1.35rem;
+  font-weight: 750;
+  margin-bottom: 24px;
+  letter-spacing: -0.3px;
+}
+
+/* Back button */
 .back-button {
-  background: rgba(26, 35, 50, 0.95);
-  color: #14b8a6;
-  border: 2px solid #14b8a6;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  background: rgba(255, 255, 255, 0.06);
+  color: #5eead4;
+
+  border: 1px solid rgba(45, 212, 191, 0.4);
+  padding: 11px 21px;
+  border-radius: 12px;
+
+  font-size: 0.95rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s;
-  margin-bottom: 20px;
+
+  margin-bottom: 24px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 .back-button:hover {
-  background: #14b8a6;
+  background: linear-gradient(135deg, #0d9488, #0891b2);
   color: white;
-  transform: translateX(-4px);
+  border-color: #5eead4;
+  transform: translateX(-5px);
+  box-shadow: 0 8px 22px rgba(20, 184, 166, 0.25);
+}
+
+.back-button:active {
+  transform: scale(0.97);
+}
+
+/* =========================================
+   FRAUD AND SAFE ALERTS
+========================================= */
+
+.fraud-alert,
+.safe-alert {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 19px 24px;
+  border-radius: 17px;
+  margin-bottom: 24px;
+
+  font-size: 1.05rem;
+  font-weight: 700;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  overflow: hidden;
 }
 
 .fraud-alert {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
-  color: white;
-  padding: 16px 24px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+  color: #fecaca;
+  background: linear-gradient(
+    120deg,
+    rgba(220, 38, 38, 0.22),
+    rgba(153, 27, 27, 0.12)
+  );
+
+  border: 1px solid rgba(248, 113, 113, 0.45);
+
+  box-shadow:
+    0 8px 25px rgba(220, 38, 38, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .safe-alert {
-  background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
-  color: white;
-  padding: 16px 24px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3);
+  color: #a7f3d0;
+  background: linear-gradient(
+    120deg,
+    rgba(5, 150, 105, 0.22),
+    rgba(4, 120, 87, 0.12)
+  );
+
+  border: 1px solid rgba(52, 211, 153, 0.4);
+
+  box-shadow:
+    0 8px 25px rgba(16, 185, 129, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .alert-icon {
-  font-size: 1.5rem;
+  flex-shrink: 0;
+  font-size: 1.7rem;
 }
+
+/* =========================================
+   MERCHANT INFORMATION
+========================================= */
 
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 17px;
 }
 
 .info-item {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+
+  padding: 18px;
+
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 15px;
+
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background: rgba(20, 184, 166, 0.07);
+  border-color: rgba(45, 212, 191, 0.3);
+  transform: translateY(-3px);
 }
 
 .info-label {
-  font-size: 0.9rem;
   color: #94a3b8;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
 }
 
 .info-value {
-  font-size: 1.1rem;
-  color: #e2e8f0;
-  font-weight: 600;
-  word-break: break-all;
+  color: #f0fdfa;
+  font-size: 1.08rem;
+  font-weight: 650;
+  word-break: break-word;
 }
 
-.badge {
-  display: inline-block;
-  background: #14b8a6;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.9rem;
+/* Merchant status badge */
+.merchant-details .badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+
+  background: linear-gradient(135deg, #0d9488, #0891b2);
+  color: #ffffff;
+
+  padding: 6px 14px;
+  border-radius: 30px;
+
+  font-size: 0.82rem;
+  font-weight: 700;
   text-transform: capitalize;
+
+  border: 1px solid rgba(94, 234, 212, 0.35);
+  box-shadow: 0 4px 14px rgba(20, 184, 166, 0.15);
 }
+
+/* =========================================
+   METRICS
+========================================= */
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
 }
 
 .metric-card {
-  background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
-  color: white;
-  padding: 20px;
-  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+
+  padding: 25px 20px;
+  border-radius: 18px;
+
   text-align: center;
-  border: 1px solid rgba(20, 184, 166, 0.3);
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    rgba(13, 148, 136, 0.3),
+    rgba(8, 145, 178, 0.2)
+  );
+
+  border: 1px solid rgba(45, 212, 191, 0.3);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  transition: all 0.3s ease;
+}
+
+/* Decorative glow */
+.metric-card::before {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  top: -65px;
+  right: -45px;
+
+  background: rgba(94, 234, 212, 0.15);
+  border-radius: 50%;
+  filter: blur(25px);
+  pointer-events: none;
+}
+
+.metric-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(94, 234, 212, 0.65);
+
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.28),
+    0 0 25px rgba(20, 184, 166, 0.14);
 }
 
 .metric-value {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 9px;
+
+  background: linear-gradient(90deg, #ffffff, #99f6e4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .metric-label {
+  position: relative;
+  z-index: 1;
+
   font-size: 0.9rem;
+  font-weight: 600;
+  color: #ccfbf1;
   opacity: 0.9;
+  letter-spacing: 0.3px;
 }
+
+/* =========================================
+   ERROR AND LOADING STATES
+========================================= */
 
 .error-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
   align-items: center;
-  padding: 40px 20px;
+  justify-content: center;
+
+  padding: 50px 25px;
+  margin-top: 25px;
+
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: 20px;
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  color: #fecaca;
+  text-align: center;
 }
 
+.error-container button {
+  padding: 11px 22px;
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  border-radius: 10px;
+
+  color: #ffffff;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.error-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.25);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
 @media (max-width: 768px) {
-  .info-grid {
-    grid-template-columns: 1fr;
+  .merchant-details {
+    padding: 22px 12px 40px;
   }
 
+  .merchant-details .card {
+    padding: 19px;
+    border-radius: 16px;
+  }
+
+  .merchant-details .card-title {
+    font-size: 1.15rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .metric-card {
+    padding: 20px 12px;
+  }
+
+  .metric-value {
+    font-size: 1.65rem;
+  }
+
+  .fraud-alert,
+  .safe-alert {
+    padding: 16px;
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 420px) {
   .metrics-grid {
     grid-template-columns: 1fr;
   }
 
-  .metric-value {
-    font-size: 1.5rem;
+  .info-item {
+    padding: 15px;
+  }
+
+  .info-value {
+    font-size: 1rem;
+  }
+
+  .back-button {
+    padding: 10px 16px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .merchant-details *,
+  .merchant-details *::before,
+  .merchant-details *::after {
+    transition: none !important;
+    animation: none !important;
   }
 }

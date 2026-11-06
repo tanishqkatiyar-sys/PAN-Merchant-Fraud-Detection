@@ -1,75 +1,249 @@
+
+/* =========================================
+   FRAUD RING GRAPH - PREMIUM GLASSMORPHISM
+========================================= */
+
 .fraud-ring-graph {
   position: relative;
   width: 100%;
+  padding: 8px;
+  color: #e2e8f0;
 }
 
+/* Main graph panel */
 .graph-container {
-  background: rgba(15, 23, 42, 0.95);
-  border-radius: 8px;
+  position: relative;
+  width: 100%;
+  min-height: 450px;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(20, 184, 166, 0.12),
+      transparent 45%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(15, 23, 42, 0.96),
+      rgba(8, 20, 36, 0.98)
+    );
+  border: 1px solid rgba(45, 212, 191, 0.25);
+  border-radius: 22px;
   overflow: hidden;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgba(20, 184, 166, 0.2);
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(20, 184, 166, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Graph panel hover */
+.graph-container:hover {
+  border-color: rgba(45, 212, 191, 0.5);
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.35),
+    0 0 35px rgba(20, 184, 166, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Subtle graph background grid */
+.graph-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+
+  background-image:
+    linear-gradient(rgba(45, 212, 191, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 191, 0.12) 1px, transparent 1px);
+
+  background-size: 35px 35px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+/* Tooltip glass panel */
 .node-tooltip {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(26, 35, 50, 0.98);
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  min-width: 280px;
+  top: 22px;
+  right: 22px;
   z-index: 10;
-  border: 2px solid #14b8a6;
+
+  min-width: 280px;
+  max-width: 340px;
+  padding: 20px;
+
+  background: rgba(8, 25, 43, 0.88);
+  border: 1px solid rgba(45, 212, 191, 0.45);
+  border-radius: 18px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(20, 184, 166, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  animation: tooltipAppear 0.25s ease-out;
 }
 
+@keyframes tooltipAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Tooltip heading */
 .tooltip-header {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #14b8a6;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid rgba(20, 184, 166, 0.3);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #5eead4;
+
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid rgba(45, 212, 191, 0.25);
+
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 15px rgba(45, 212, 191, 0.25);
 }
 
+/* Tooltip information rows */
 .tooltip-row {
   display: flex;
   justify-content: space-between;
-  padding: 6px 0;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 10px 0;
   font-size: 0.9rem;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.tooltip-row:last-child {
+  border-bottom: none;
+}
+
+/* Labels */
 .tooltip-label {
   font-weight: 600;
   color: #94a3b8;
+  flex-shrink: 0;
 }
 
+/* Values */
 .tooltip-value {
-  color: #e2e8f0;
+  color: #f0fdfa;
   text-align: right;
   max-width: 180px;
+
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  font-weight: 600;
 }
 
+/* Tooltip footer */
 .tooltip-footer {
-  margin-top: 12px;
-  padding-top: 8px;
-  border-top: 2px solid rgba(20, 184, 166, 0.3);
+  margin-top: 14px;
+  padding-top: 12px;
+
+  border-top: 1px solid rgba(45, 212, 191, 0.25);
+
   font-size: 0.85rem;
-  color: #14b8a6;
+  color: #5eead4;
   font-style: italic;
   text-align: center;
+
+  text-shadow: 0 0 12px rgba(45, 212, 191, 0.2);
 }
 
+/* Responsive design */
 @media (max-width: 768px) {
+  .fraud-ring-graph {
+    padding: 2px;
+  }
+
+  .graph-container {
+    min-height: 350px;
+    border-radius: 16px;
+  }
+
   .node-tooltip {
-    position: static;
-    margin-top: 16px;
-    width: 100%;
+    position: relative;
+    top: auto;
+    right: auto;
+
+    width: auto;
+    max-width: none;
+    min-width: 0;
+
+    margin-top: 15px;
+    padding: 16px;
+    border-radius: 15px;
+  }
+
+  .tooltip-header {
+    font-size: 1.05rem;
+  }
+
+  .tooltip-row {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .graph-container {
+    min-height: 300px;
+  }
+
+  .node-tooltip {
+    padding: 14px;
+  }
+
+  .tooltip-value {
+    max-width: 145px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .node-tooltip {
+    animation: none;
+  }
+
+  .graph-container {
+    transition: none;
   }
 }
